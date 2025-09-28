@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🗃️ The Weirdest Archives on Earth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+            color: #00ff88;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .glitch-header {
+            text-align: center;
+            font-size: 3rem;
+            margin: 20px 0;
+            text-shadow: 0 0 20px #00ff88;
+            animation: flicker 2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0%, 100% { text-shadow: 0 0 20px #00ff88, 0 0 40px #00ff88; }
+            50% { text-shadow: 0 0 10px #ff0088, 0 0 30px #ff0088; }
+        }
+
+        .weird-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .archive-card {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid #00ff88;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .archive-card:hover {
+            background: rgba(0, 255, 136, 0.2);
+            border-color: #ff0088;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .archive-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ff0088;
+        }
+
+        .archive-desc {
+            line-height: 1.6;
+            font-size: 0.9rem;
+        }
+
+        .s3-section {
+            background: rgba(255, 0, 136, 0.1);
+            border: 2px dashed #ff0088;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .s3-button {
+            background: linear-gradient(45deg, #ff0088, #00ff88);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .s3-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 0, 136, 0.5);
+        }
+
+        .random-item {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #00ff88;
+            font-family: monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid #00ff88;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .glitch-header { font-size: 2rem; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <canvas class="matrix-bg" id="matrix"></canvas>
+    
+    <div class="container">
+        <h1 class="glitch-header">🗃️ THE WEIRDEST ARCHIVES ON EARTH 🗃️</h1>
+        
+        <div class="weird-grid">
+            <div class="archive-card">
+                <h2 class="archive-title">🦴 The Coprolite Collection</h2>
+                <p class="archive-desc">George Frandsen holds the world record for the largest collection of fossilized dinosaur poop (coprolites) with over 1,277 specimens. Because apparently someone needed to preserve ancient bathroom breaks for science! 💩</p>
+            </div>
+
+            <div class="archive-card">
+                <h2 class="archive-title">🕷️ Museum of Hoaxes</h2>
+                <p class="archive-desc">Alex Boese's digital collection of scams, hoaxes, and fake news from throughout history. It's like a library of lies, but in the best possible way. Perfect for understanding how humans have been trolling each other for centuries! 🎭</p>
+            </div>
+
+            <div class="archive-card">
+                <h2 class="archive-title">🩸 Kerouac's Blood Card</h2>
+                <p class="archive-desc">The New York Public Library houses Jack Kerouac's index card literally signed in his own blood from 1944. Dude was so emo he made it into literary history. Talk about commitment to the craft! 🖋️</p>
+            </div>
+
+            <div class="archive-card">
+                <h2 class="archive-title">📺 Archive of Random YouTube Videos</h2>
+                <p class="archive-desc">Internet Archive preserves the most random, weird YouTube videos that would otherwise be lost to the void. It's like a digital time capsule of human weirdness from the early internet days! 📱</p>
+            </div>
+
+            <div class="archive-card">
+                <h2 class="archive-title">🌍 Dirt from Katherine Anne Porter's Grave</h2>
+                <p class="archive-desc">Some archivist literally collected soil from a famous author's burial site. Because apparently we're preserving everything now, including literal dirt with literary significance! 🪦</p>
+            </div>
+
+            <div class="archive-card">
+                <h2 class="archive-title">🎮 Mr. Nightmare's Deleted Videos</h2>
+                <p class="archive-desc">A fan archive preserving horror YouTuber content that the creator tried to delete. It's like a digital graveyard of spooky videos that refuse to stay buried! 👻</p>
+            </div>
+        </div>
+
+        <div class="s3-section">
+            <h2 style="color: #ff0088; margin-bottom: 20px;">🎲 MYSTERY S3 BUCKET ROULETTE</h2>
+            <p style="margin-bottom: 20px;">Let's see what random treasures we can dig up from that S3 bucket you mentioned!</p>
+            
+            <button class="s3-button" onclick="fetchRandomS3Item()">🎯 Pull Random Item</button>
+            <button class="s3-button" onclick="tryCommonFiles()">📋 Try Common Files</button>
+            <button class="s3-button" onclick="generateRandomPath()">🎰 Random Path Generator</button>
+            
+            <div class="random-item" id="s3-result">
+                Click a button above to start exploring! 🚀
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>✨ Built for digital archaeologists and curiosity addicts ✨</p>
+        <p>Remember: The internet never forgets, but sometimes it gets really weird about what it remembers 🤪</p>
+    </div>
+
+    <script>
+        // Matrix rain effect
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+        const matrixArray = matrix.split("");
+
+        const fontSize = 10;
+        const columns = canvas.width / fontSize;
+        const drops = [];
+
+        for(let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            ctx.fillStyle = '#00ff88';
+            ctx.font = fontSize + 'px monospace';
+
+            for(let i = 0; i < drops.length; i++) {
+                const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 35);
+
+        // S3 bucket exploration functions
+        const s3BaseUrl = 'https://fileservermead.s3.ap-southeast-1.amazonaws.com/S3/';
+        const resultDiv = document.getElementById('s3-result');
+
+        // Common file patterns to try
+        const commonFiles = [
+            '00a30038c6187ca5665769c19d54eb9f.JPEG', // Known file from the bucket!
+            'index.html', 'readme.txt', 'data.json', 'config.xml',
+            'test.txt', 'sample.pdf', 'image.jpg', 'document.doc',
+            'backup.zip', 'log.txt', 'info.json', 'manifest.xml',
+            'data/sample.csv', 'assets/logo.png', 'docs/readme.md',
+            'uploads/file1.jpg', 'temp/data.txt', 'archive/old.zip'
+        ];
+
+        async function fetchRandomS3Item() {
+            resultDiv.innerHTML = '🔍 Searching for random treasures...';
+            
+            const randomFile = commonFiles[Math.floor(Math.random() * commonFiles.length)];
+            const fullUrl = s3BaseUrl + randomFile;
+            
+            try {
+                const response = await fetch(fullUrl);
+                if (response.ok) {
+                    const contentType = response.headers.get('content-type') || 'unknown';
+                    resultDiv.innerHTML = `
+                        ✅ <strong>FOUND SOMETHING!</strong><br>
+                        📂 File: ${randomFile}<br>
+                        🔗 URL: <a href="${fullUrl}" target="_blank" style="color: #00ff88;">${fullUrl}</a><br>
+                        📊 Size: ${response.headers.get('content-length') || 'Unknown'} bytes<br>
+                        📅 Last Modified: ${response.headers.get('last-modified') || 'Unknown'}<br>
+                        🎭 Type: ${contentType}
+                    `;
+                } else if (response.status === 403) {
+                    resultDiv.innerHTML = `
+                        🔐 <strong>ACCESS DENIED!</strong><br>
+                        🎯 Tried: ${randomFile}<br>
+                        💡 The file might exist but bucket permissions need tweaking<br>
+                        🛠️ Try setting bucket policy to allow public read access<br>
+                        📋 Status: ${response.status} - Forbidden
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        ❌ <strong>Nope, not there!</strong><br>
+                        🎯 Tried: ${randomFile}<br>
+                        💡 Status: ${response.status} ${response.statusText}<br>
+                        🎲 Try again for a different random file!
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    ⚠️ <strong>Connection Error</strong><br>
+                    🚫 Couldn't reach: ${fullUrl}<br>
+                    💭 Possible CORS or network issue<br>
+                    🔧 Error: ${error.message}
+                `;
+            }
+        }
+
+        async function tryCommonFiles() {
+            resultDiv.innerHTML = '🔎 Scanning for common files... (this might take a sec)';
+            const found = [];
+            const notFound = [];
+            
+            for (let i = 0; i < Math.min(commonFiles.length, 8); i++) {
+                const file = commonFiles[i];
+                try {
+                    const response = await fetch(s3BaseUrl + file, { method: 'HEAD' });
+                    if (response.ok) {
+                        found.push({
+                            file: file,
+                            url: s3BaseUrl + file,
+                            size: response.headers.get('content-length') || 'Unknown'
+                        });
+                    } else {
+                        notFound.push(file);
+                    }
+                } catch (error) {
+                    notFound.push(`${file} (error: ${error.message})`);
+                }
+            }
+            
+            let result = '<strong>📊 SCAN RESULTS:</strong><br><br>';
+            
+            if (found.length > 0) {
+                result += '✅ <strong>FOUND FILES:</strong><br>';
+                found.forEach(item => {
+                    result += `• <a href="${item.url}" target="_blank" style="color: #00ff88;">${item.file}</a> (${item.size} bytes)<br>`;
+                });
+                result += '<br>';
+            }
+            
+            if (notFound.length > 0) {
+                result += `❌ <strong>NOT FOUND (${notFound.length} files):</strong><br>`;
+                result += notFound.slice(0, 5).join(', ');
+                if (notFound.length > 5) result += `, ... and ${notFound.length - 5} more`;
+            }
+            
+            resultDiv.innerHTML = result;
+        }
+
+        function generateRandomPath() {
+            const folders = ['data', 'uploads', 'assets', 'docs', 'temp', 'backup', 'archive', 'files'];
+            const extensions = ['.txt', '.json', '.jpg', '.png', '.pdf', '.zip', '.xml', '.csv'];
+            
+            const randomFolder = folders[Math.floor(Math.random() * folders.length)];
+            const randomName = Math.random().toString(36).substring(2, 8);
+            const randomExt = extensions[Math.floor(Math.random() * extensions.length)];
+            
+            const randomPath = `${randomFolder}/${randomName}${randomExt}`;
+            const fullUrl = s3BaseUrl + randomPath;
+            
+            resultDiv.innerHTML = `
+                🎰 <strong>RANDOM PATH GENERATED!</strong><br>
+                🎯 Path: ${randomPath}<br>
+                🔗 Try it: <a href="${fullUrl}" target="_blank" style="color: #00ff88;">${fullUrl}</a><br>
+                💡 This is totally random - might exist, might not! 🤷‍♂️
+            `;
+        }
+
+        // Add some interactive effects to archive cards
+        document.querySelectorAll('.archive-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.background = 'rgba(255, 0, 136, 0.2)';
+                setTimeout(() => {
+                    this.style.background = 'rgba(0, 255, 136, 0.1)';
+                }, 200);
+            });
+        });
+
+        // Resize canvas on window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
